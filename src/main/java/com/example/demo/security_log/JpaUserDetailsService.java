@@ -15,7 +15,7 @@ import java.util.Collections;
 @Service
 
 public class JpaUserDetailsService implements  UserDetailsService {
-    private UserAccountDAO userAccountDAO;
+    private final UserAccountDAO userAccountDAO;
 
     @Autowired
     public JpaUserDetailsService(UserAccountDAO userAccountDAO) {

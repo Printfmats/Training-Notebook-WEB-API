@@ -2,45 +2,62 @@ package com.example.demo.user_account;
 
 
 import com.example.demo.security_log.SecurityUser;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @Controller
 public class UserRestController {
 
-        @RequestMapping("/")
-        public String startingPage() {
-            return "startpage";
-        }
 
-        @RequestMapping("/login")
-        public String logingPage(){
-            return "loginpage";
-        }
+    private PasswordEncoder passwordEncoder;
+    private UserAccountDAO userAccountDAO;
 
-        @RequestMapping("/register")
-        public String registeringgPage(Model model) {
+    @Autowired
+    public UserRestController(PasswordEncoder passwordEncoder, UserAccountDAO userAccountDAO) {
+        this.passwordEncoder = passwordEncoder;
+        this.userAccountDAO = userAccountDAO;
+    }
+
+    @RequestMapping("/") public String startingPage() {
+        return "startpage";
+    }
+    @RequestMapping("/login")
+    public String logingPage(){
+        return "loginpage";
+    }
+    @GetMapping("/register")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("userAccount", new UserAccount());
+        return "registerpage";
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute("userAccount") @Valid UserAccount userAccount, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "registerpage";
         }
-//        @RequestMapping(value = "/processForm", method= RequestMethod.POST)
-//        public String processForm(@ModelAttribute(value="foo") UserAccount userAccount) {
-//
+        userAccount.setUserPassword(passwordEncoder.encode(userAccount.getUserPassword()));
+        userAccountDAO.save(userAccount);
+        return "redirect:/login";
+    }
+//    @PostMapping("/register")
+//    public String registerUser(@ModelAttribute("userAccount") @Valid UserAccount userAccount, BindingResult bindingResult) {
+//        if (bindingResult.hasErrors()) {
+//            return "registerpage";
 //        }
-        @RequestMapping("/api")
-        public String apiPage() {
+//        userAccountDAO.save(userAccount);
+//        return "redirect:/login";
+//    }
+    @RequestMapping("/api")
+    public String apiPage() {
             return "apipage";
         }
-
-
-//    	@Bean
-//        CommandLineRunner commandLineRunner (UserAccountDAO repositoryUser){
-//		return args -> {
-//			repositoryUser.save(new UserAccount(2L,"Meksyk","1234","Meks123@wp.pl"));
-//		};
-//	}
 }

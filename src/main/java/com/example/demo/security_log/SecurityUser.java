@@ -13,7 +13,7 @@ import java.util.Collection;
 
 public class SecurityUser implements UserDetails {
 
-    private  UserAccount userAccount;
+    private final UserAccount userAccount;
 
     @Autowired
     public SecurityUser(UserAccount userAccount) {
@@ -22,11 +22,6 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return Arrays.stream(userAccount
-//                        .getUserName()
-//                        .split(","))
-//                .map(SimpleGrantedAuthority::new)
-//                .toList();
         return null;
     }
 

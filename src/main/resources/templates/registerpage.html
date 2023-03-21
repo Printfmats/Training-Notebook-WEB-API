@@ -6,16 +6,23 @@
 </head>
 <body>
 <div class="container">
-    <form class="form" th:action="@{/register}" method="post">
+    <form class="form" th:action="@{/register}" th:object="${userAccount}" method="post">
         <h1>Registration page</h1>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" autofocus="autofocus" />
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" />
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" />
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" th:field="*{userName}" autofocus="autofocus" />
+            <span class="error" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" th:field="*{userPassword}" />
+            <span class="error" th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" th:field="*{userEmail}" />
+            <span class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></span>
+        </div>
         <input type="submit" value="Register" />
         <p style="font-size: 12px; text-align: center;">Already have an account? <a href="/login">Log in</a></p>
     </form>
