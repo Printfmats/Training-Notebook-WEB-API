@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="9bf323c5-5f30-44c1-8632-a2b4be88c39e" name="NotesTrening" url="jdbc:postgresql://localhost:5432/NotesTrening" driverClass="org.postgresql.Driver" />
+    </data-sources>
+  </component>
+</project>

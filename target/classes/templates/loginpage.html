@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Login page</title>
+    <link rel="stylesheet"  type="text/css" th:href="@{/css/loginpagestyle.css}">
+
+</head>
+<body>
+<div class="container">
+    <form class="form" th:action="@{/login}" method="post">
+        <h1>Login page</h1>
+        <p th:if="${loginError}" class="error">Wrong user or password</p>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autofocus="autofocus" />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+        <button  class="submit" >log in</button>
+        <p style="font-size: 12px; text-align: center;">Nie masz jeszcze konta? <a href="/register">Zarejestruj się</a></p>
+    </form>
+</div>
+</body>
+</html>
