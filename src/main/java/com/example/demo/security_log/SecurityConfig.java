@@ -24,10 +24,6 @@ public class SecurityConfig {
         this.jpaUserDetailsService = jpaUserDetailsService;
     }
 
-//    @Bean
-//    public PasswordEncoder getPasswordEncoder() {
-//        return NoOpPasswordEncoder.getInstance();
-//    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -40,9 +36,20 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/","/css/**","/register/**").permitAll().anyRequest().authenticated()
                 .and()
+//                .rememberMe()
+//                .userDetailsService(jpaUserDetailsService)
+//                .key("rem-me-key")
+//                .rememberMeParameter("remember") // it is name of checkbox at login page
+//                .rememberMeCookieName("rememberlogin") // it is name of the cookie
+//                .tokenValiditySeconds(100) // remember for number of seconds
+//                .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .successForwardUrl("/api")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
                 .and()
                 .userDetailsService(jpaUserDetailsService)
                 .build();

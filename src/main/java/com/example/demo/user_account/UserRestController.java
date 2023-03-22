@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+
 
 @Controller
 public class UserRestController {
@@ -19,11 +19,13 @@ public class UserRestController {
 
     private PasswordEncoder passwordEncoder;
     private UserAccountDAO userAccountDAO;
+    private UserService userService;
 
     @Autowired
-    public UserRestController(PasswordEncoder passwordEncoder, UserAccountDAO userAccountDAO) {
+    public UserRestController(PasswordEncoder passwordEncoder, UserAccountDAO userAccountDAO, UserService userService) {
         this.passwordEncoder = passwordEncoder;
         this.userAccountDAO = userAccountDAO;
+        this.userService = userService;
     }
 
     @RequestMapping("/") public String startingPage() {
@@ -44,20 +46,30 @@ public class UserRestController {
         if (bindingResult.hasErrors()) {
             return "registerpage";
         }
+        if (userService.isEmailAlreadyRegistered(userAccount.getUserEmail())) {
+            return "registerpage";
+        }
         userAccount.setUserPassword(passwordEncoder.encode(userAccount.getUserPassword()));
         userAccountDAO.save(userAccount);
         return "redirect:/login";
     }
-//    @PostMapping("/register")
-//    public String registerUser(@ModelAttribute("userAccount") @Valid UserAccount userAccount, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            return "registerpage";
-//        }
-//        userAccountDAO.save(userAccount);
-//        return "redirect:/login";
-//    }
     @RequestMapping("/api")
     public String apiPage() {
             return "apipage";
         }
+
+    @RequestMapping("/api/dodaj-notatki")
+    public String apiAddingNotesPage() {
+        return "nowenotatkipage";
+    }
+
+    @RequestMapping("/api/treningi")
+    public String apiTreiningiPage() {
+        return "treningipage";
+    }
+
+    @RequestMapping("/api/profil")
+    public String apiProfilPage() {
+        return "profilpage";
+    }
 }

@@ -10,14 +10,26 @@ pobrać inputy gdy się logujesz/ sprawdzić w bazie i przekierować do api     
 pobrać inputy gdy się zarejestrujesz/  ZROBIONE 21.03
 wprowadzić za pomocą hibernate ograniczenia znaków w danych min.  ZROBIONE 21.03
 zwracanie komunikatu na ekranie zamiast w konsoli oraz nie przekierowywanie jak user wprowadzi złe dane  ZROBIONE 21.03
-BcryptNcoder zabezpieczenie hasła w bazie gdy się rejestruje użytkownik  21.03
-Tworzenie stronyn html i css API po zalogowaniu, główne mięsko aplikacji / notatnik
+BcryptNcoder zabezpieczenie hasła w bazie gdy się rejestruje użytkownik  ZROBIONE 21.03
+
+22.03
+Nie przyjmie rejestracji użytkownika jeśli jego mail już jest w bazie   ZROBIONE 22.03
+dodanie remember me w login page :/ nie działa przez liścia  COŚ ZROBIONE 22.03
+Tworzenie stronyn html i css API po zalogowaniu, główne mięsko aplikacji / notatnik  COŚ ZROBIONE 22.03
 
 
-docker compose
-udostępnienie heroku
-ogarnięcie wysłania maila w API
-przygotwanie tokena do wysłania jako potwierdzenie
-Za nim pozwolisz komuś się zarejstrować sprawdzasz bazę czy ktoś taski jest i wysyłasz na maila tokena
-potwierdzony użytkownik trafia do bazy i ma dostęp do strony
+DO ZREALIZOWANIA
+Strona profilu
+Strona kreowania notatki
+Strona Treningów
+
+Stworzenie pełnej bazy, wszystkich encji i powiązać je z kontem użytkownika
+
+Poprawkiz logowanie
+
+Dodać oauth logowanie gmailem
+
+Ograniczenia z maile żeby miał @, haslo duża literę i cyfrę
+
+Jeśli użytkownik jest w bazie to wyrzucia informację a nie tylko nie przyjmuje rejestracji
 

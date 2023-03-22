@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Moja strona</title>
+    <link rel="stylesheet"  type="text/css" th:href="@{/css/apipagestyle.css}">
+</head>
+<body>
+<!-- Pasek nawigacyjny -->
+<nav>
+    <a href="http://localhost:8080/api/treningi">Treningi</a>
+    <a href="http://localhost:8080/api/dodaj-notatki">Nowe notatki</a>
+
+    <a href="http://localhost:8080/api/profil">Profil</a>
+    <a th:href="@{/logout}">Wyloguj się</a>
+    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+        <input hidden type="submit" value="Sign Out"/>
+    </form>
+</nav>
+</body>
