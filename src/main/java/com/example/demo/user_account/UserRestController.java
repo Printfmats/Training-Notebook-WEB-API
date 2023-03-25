@@ -5,12 +5,16 @@ import com.example.demo.security_log.SecurityUser;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 
 
 @Controller
@@ -26,7 +30,9 @@ public class UserRestController {
         this.passwordEncoder = passwordEncoder;
         this.userAccountDAO = userAccountDAO;
         this.userService = userService;
+
     }
+
 
     @RequestMapping("/") public String startingPage() {
         return "startpage";
@@ -69,7 +75,7 @@ public class UserRestController {
     }
 
     @RequestMapping("/api/profil")
-    public String apiProfilPage() {
+    public String apiProfilPage(Model model, Principal principal) {
         return "profilpage";
     }
 }

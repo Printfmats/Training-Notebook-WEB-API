@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/apipagestyle.css}">
+    <link rel="stylesheet"  type="text/css" th:href="@{/css/profilpagestyle.css}">
 </head>
 <body>
 <nav>
@@ -16,6 +16,20 @@
         <input hidden type="submit" value="Sign Out"/>
     </form>
 </nav>
+    <h1>Dane użytkownika</h1>
+
+    <div sec:authorize="isAuthenticated()">
+        <label>Nazwa użytkownika:</label>
+        <span th:text="${username}"></span>
+    </div>
+    <div>
+        <label>Email:</label>
+        <span th:text="${#authentication.getPrincipal().getEmail()}"></span>
+    </div>
+    <div>
+        <label>Ilość dodanych notatek treningowych:</label>
+        <span>27</span>
+    </div>
 
 </body>
 </html>

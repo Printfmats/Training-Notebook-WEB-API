@@ -1,0 +1,48 @@
+/* Ustawienie koloru tła na niebieski */
+body {
+  background-color: #0E67B4;
+}
+
+/* Stylowanie nagłówka */
+h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Stylowanie etykiet */
+label {
+  color: white;
+  font-size: 18px;
+}
+
+/* Stylowanie pól tekstowych */
+input[type=text], textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Stylowanie przycisku */
+button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Stylowanie linków w nawigacji */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+/* Stylowanie aktywnego linku w nawigacji */
+nav a[href*="/api/dodaj-notatki"] {
+  font-weight: bold;
+}

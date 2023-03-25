@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Moja strona</title>
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/apipagestyle.css}">
+    <link rel="stylesheet"  type="text/css" th:href="@{/css/nowenotatkipagestyle.css}">
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,7 @@
             </form>
         </nav>
         <form th:action="@{/add-note}" method="post" enctype="multipart/form-data">
-            <h1>Add Note</h1>
+            <h1>Nowa notatka treningowa</h1>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required="required"/>
             <br />
@@ -29,9 +29,6 @@
             <br />
             <label for="end-date">End Date:</label>
             <input type="datetime-local" id="end-date" name="end-date" required="required"/>
-            <br />
-            <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept="image/*"/>
             <br />
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="4"></textarea>

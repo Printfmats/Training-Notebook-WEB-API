@@ -17,11 +17,17 @@ Nie przyjmie rejestracji użytkownika jeśli jego mail już jest w bazie   ZROBI
 dodanie remember me w login page :/ nie działa przez liścia  COŚ ZROBIONE 22.03
 Tworzenie stronyn html i css API po zalogowaniu, główne mięsko aplikacji / notatnik  COŚ ZROBIONE 22.03
 
+25.03
+Strona profilu wizualnie  zZROBIONE 25.03
+Strona kreowania notatki wizualnie ZROBIONE 25.03
+Strona Treningów wizualnie   ZROBIONE 25.03
+
+
 
 DO ZREALIZOWANIA
-Strona profilu
-Strona kreowania notatki
-Strona Treningów
+Strona profilu zwraca dane zalogowanego użytkownika
+Encje pod treningi powiązane z kontami użytkowników HIBERNATE SIĘ KŁANIA :)
+Strona Treningi Zwraca dane zalogowanego użytkownika
 
 Stworzenie pełnej bazy, wszystkich encji i powiązać je z kontem użytkownika
 

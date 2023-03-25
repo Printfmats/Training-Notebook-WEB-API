@@ -1,0 +1,30 @@
+body {
+  background-color: #0E67B4;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  padding: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+span {
+  display: inline-block;
+  width: 300px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

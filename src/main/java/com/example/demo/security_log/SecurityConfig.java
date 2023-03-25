@@ -45,7 +45,7 @@ public class SecurityConfig {
 //                .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .successForwardUrl("/api")
+                .successForwardUrl("/api/dodaj-notatki")
                 .and()
                 .logout()
                 .logoutUrl("/logout")
