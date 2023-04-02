@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
 
@@ -50,17 +51,20 @@ public class UserRestController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("userAccount") @Valid UserAccount userAccount, BindingResult bindingResult) {
+    public String registerUser(@ModelAttribute("userAccount") @Valid UserAccount userAccount, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "registerpage";
         }
         if (userService.isEmailAlreadyRegistered(userAccount.getUserEmail())) {
+            bindingResult.rejectValue("userEmail", "error.userAccount", "This email is already registered");
             return "registerpage";
         }
         userAccount.setUserPassword(passwordEncoder.encode(userAccount.getUserPassword()));
         userAccountDAO.save(userAccount);
-        return "redirect:/login";
+        redirectAttributes.addAttribute("successMessage", "Registration successful. You can now log in.");
+        return "redirect:/register";
     }
+
     @RequestMapping("/api/dodaj-notatki")
     public String apiAddingNotesPage() {
         return "nowenotatkipage";
@@ -75,7 +79,6 @@ public class UserRestController {
     public String apiProfilPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         UserAccount user = userAccountDAO.findByUserName(userDetails.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-
         model.addAttribute("email", user.getUserEmail());
         return "profilpage";
     }

@@ -23,15 +23,20 @@ Strona kreowania notatki wizualnie ZROBIONE 25.03
 Strona Treningów wizualnie   ZROBIONE 25.03
 
 
+02.04
+Strona profilu zwraca dane zalogowanego użytkownika ZROBIONE 02.04
+Poprawienie email'u na stronie z profilem  ZROBIONE 02.04
+Schludniejsze security użycie lambd  ZROOBIONE 02.04
+email przy rejestracji wymaga odpowidnich znaków  ZROBIONE 02.04
+
 
 DO ZREALIZOWANIA
-Strona profilu zwraca dane zalogowanego użytkownika
 Encje pod treningi powiązane z kontami użytkowników HIBERNATE SIĘ KŁANIA :)
 Strona Treningi Zwraca dane zalogowanego użytkownika
 
 Stworzenie pełnej bazy, wszystkich encji i powiązać je z kontem użytkownika
 
-Poprawkiz logowanie
+Poprawkic logowanie
 
 Dodać oauth logowanie gmailem
 

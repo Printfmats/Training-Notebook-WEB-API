@@ -1,5 +1,6 @@
 package com.example.demo.user_account;
 
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import jakarta.persistence.*;
 
@@ -37,6 +38,7 @@ public class UserAccount {
     @Column(name = "user_password", nullable = false)
     private String userPassword;
 
+    @Pattern(regexp = ".+@.+\\..+", message = "Nieprawidłowy adres email")
     @Size(min = 3 , message = "Nazwa musi zawierać od {min} znaków!")
     @Column(name = "user_email", nullable = false)
     private String userEmail;

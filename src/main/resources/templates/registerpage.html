@@ -7,6 +7,16 @@
 <body>
 <div class="container">
     <form class="form" th:action="@{/register}" th:object="${userAccount}" method="post">
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                Invalid username and password.
+            </div>
+        </div>
+        <div th:if="${param.successMessage}">
+            <div class="alert alert-success">
+                Registration successful. You can now log in.
+            </div>
+        </div>
         <h1>Registration page</h1>
         <div class="form-group">
             <label for="username">Username</label>
@@ -22,6 +32,8 @@
             <label for="email">Email</label>
             <input type="text" id="email" th:field="*{userEmail}" />
             <span class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></span>
+            <span class="error" th:if="${#fields.hasErrors('userEmail') && #fields.getError('userEmail') != null && #fields.getError('userEmail').contains('email')}"
+                  th:text="${#fields.getError('userEmail')}"></span>
         </div>
         <input type="submit" value="Register" />
         <p style="font-size: 12px; text-align: center;">Already have an account? <a href="/login">Log in</a></p>
