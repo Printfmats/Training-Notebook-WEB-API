@@ -32,26 +32,27 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
+                .formLogin(formlogin ->{
+                    formlogin.loginPage("/login").permitAll();
+                    formlogin.successForwardUrl("/api/dodaj-notatki");
+                })
+                .logout(logout ->{
+                    logout.logoutUrl("/logout");
+                    logout.logoutSuccessUrl("/");
+                })
+                .authorizeHttpRequests(auth ->{
+                    auth.requestMatchers("/","/css/**","/register/**").permitAll().anyRequest().authenticated();
+                })
                 .csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/","/css/**","/register/**").permitAll().anyRequest().authenticated()
-                .and()
+                .userDetailsService(jpaUserDetailsService)
+                .build();
+
+
 //                .rememberMe()
 //                .userDetailsService(jpaUserDetailsService)
 //                .key("rem-me-key")
 //                .rememberMeParameter("remember") // it is name of checkbox at login page
 //                .rememberMeCookieName("rememberlogin") // it is name of the cookie
 //                .tokenValiditySeconds(100) // remember for number of seconds
-//                .and()
-                .formLogin()
-                .loginPage("/login").permitAll()
-                .successForwardUrl("/api/dodaj-notatki")
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .and()
-                .userDetailsService(jpaUserDetailsService)
-                .build();
     }
 }

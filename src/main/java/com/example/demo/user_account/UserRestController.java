@@ -6,8 +6,10 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,11 +61,6 @@ public class UserRestController {
         userAccountDAO.save(userAccount);
         return "redirect:/login";
     }
-    @RequestMapping("/api")
-    public String apiPage() {
-            return "apipage";
-        }
-
     @RequestMapping("/api/dodaj-notatki")
     public String apiAddingNotesPage() {
         return "nowenotatkipage";
@@ -75,7 +72,11 @@ public class UserRestController {
     }
 
     @RequestMapping("/api/profil")
-    public String apiProfilPage(Model model, Principal principal) {
+    public String apiProfilPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        UserAccount user = userAccountDAO.findByUserName(userDetails.getUsername())
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        model.addAttribute("email", user.getUserEmail());
         return "profilpage";
     }
 }

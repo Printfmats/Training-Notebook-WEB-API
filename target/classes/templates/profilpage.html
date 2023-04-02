@@ -19,17 +19,16 @@
     <h1>Dane użytkownika</h1>
 
     <div sec:authorize="isAuthenticated()">
-        <label>Nazwa użytkownika:</label>
-        <span th:text="${username}"></span>
+        <label>Authenticated as:</label>
+        <span sec:authentication="name"></span></div>
     </div>
-    <div>
-        <label>Email:</label>
-        <span th:text="${#authentication.getPrincipal().getEmail()}"></span>
-    </div>
+<div>
+    <label>Email:</label>
+    <span th:text="${email}"></span>
+</div>
     <div>
         <label>Ilość dodanych notatek treningowych:</label>
-        <span>27</span>
+        <span></span>
     </div>
-
 </body>
 </html>
