@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 //@RequiredArgsConstructor
 public class SecurityConfig {
-    private JpaUserDetailsService jpaUserDetailsService;
+    private final JpaUserDetailsService jpaUserDetailsService;
 
     @Autowired
     public SecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
@@ -41,7 +41,9 @@ public class SecurityConfig {
                     logout.logoutSuccessUrl("/");
                 })
                 .authorizeHttpRequests(auth ->{
-                    auth.requestMatchers("/","/css/**","/register/**").permitAll().anyRequest().authenticated();
+                    auth.requestMatchers("/","/css/**","/register").permitAll();
+                    auth.requestMatchers("/api/**").authenticated();
+
                 })
                 .csrf().disable()
                 .userDetailsService(jpaUserDetailsService)

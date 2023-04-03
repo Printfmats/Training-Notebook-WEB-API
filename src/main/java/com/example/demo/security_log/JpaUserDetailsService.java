@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-
 public class JpaUserDetailsService implements  UserDetailsService {
     private final UserAccountDAO userAccountDAO;
 

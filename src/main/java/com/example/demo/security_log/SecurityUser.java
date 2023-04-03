@@ -1,15 +1,15 @@
 package com.example.demo.security_log;
 
 import com.example.demo.user_account.UserAccount;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class SecurityUser implements UserDetails {
@@ -23,7 +23,17 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        System.out.println(userAccount.getRole());
+        System.out.println(Arrays.stream(userAccount
+                        .getRole()
+                        .split(","))
+                .map(SimpleGrantedAuthority::new)
+                .toList());
+        return Arrays.stream(userAccount
+                        .getRole()
+                        .split(","))
+                .map(SimpleGrantedAuthority::new)
+                .toList();
     }
 
     @Override

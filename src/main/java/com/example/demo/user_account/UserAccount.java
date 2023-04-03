@@ -42,4 +42,7 @@ public class UserAccount {
     @Size(min = 3 , message = "Nazwa musi zawierać od {min} znaków!")
     @Column(name = "user_email", nullable = false)
     private String userEmail;
+
+    @Column(name = "role")
+    private String role;
 }

@@ -29,6 +29,9 @@ Poprawienie email'u na stronie z profilem  ZROBIONE 02.04
 Schludniejsze security użycie lambd  ZROOBIONE 02.04
 email przy rejestracji wymaga odpowidnich znaków  ZROBIONE 02.04
 
+03.04
+
+
 
 DO ZREALIZOWANIA
 Encje pod treningi powiązane z kontami użytkowników HIBERNATE SIĘ KŁANIA :)
