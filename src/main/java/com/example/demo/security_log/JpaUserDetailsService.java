@@ -1,23 +1,18 @@
 package com.example.demo.security_log;
 
-import com.example.demo.user_account.UserAccount;
-import com.example.demo.user_account.UserAccountDAO;
-import lombok.RequiredArgsConstructor;
+import com.example.demo.repositories.UserAccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-
 @Service
 public class JpaUserDetailsService implements  UserDetailsService {
-    private final UserAccountDAO userAccountDAO;
+    private final UserAccountRepo userAccountDAO;
 
     @Autowired
-    public JpaUserDetailsService(UserAccountDAO userAccountDAO) {
+    public JpaUserDetailsService(UserAccountRepo userAccountDAO) {
         this.userAccountDAO = userAccountDAO;
     }
 

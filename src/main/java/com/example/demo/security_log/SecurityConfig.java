@@ -12,12 +12,15 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.RememberMeServices;
+import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
 @Configuration
 @EnableWebSecurity
 //@RequiredArgsConstructor
 public class SecurityConfig {
     private final JpaUserDetailsService jpaUserDetailsService;
+
 
     @Autowired
     public SecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
@@ -29,6 +32,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -39,22 +44,28 @@ public class SecurityConfig {
                 .logout(logout ->{
                     logout.logoutUrl("/logout");
                     logout.logoutSuccessUrl("/");
+
                 })
                 .authorizeHttpRequests(auth ->{
                     auth.requestMatchers("/","/css/**","/register").permitAll();
                     auth.requestMatchers("/api/**").authenticated();
 
                 })
+//                .rememberMe(remember -> {
+//                    remember.key("mykey");
+//                    remember.alwaysRemember(true);
+//                      remember
+//
+//                })
+//                .rememberMe()
+//                .key("rem-me-key")
+//                .rememberMeParameter("remember") // it is name of checkbox at login page
+//                .rememberMeCookieName("remember") // it is name of the cookie
+//                .tokenValiditySeconds(180) // remember for number of seconds
+//                .and()
                 .csrf().disable()
                 .userDetailsService(jpaUserDetailsService)
                 .build();
 
-
-//                .rememberMe()
-//                .userDetailsService(jpaUserDetailsService)
-//                .key("rem-me-key")
-//                .rememberMeParameter("remember") // it is name of checkbox at login page
-//                .rememberMeCookieName("rememberlogin") // it is name of the cookie
-//                .tokenValiditySeconds(100) // remember for number of seconds
     }
 }

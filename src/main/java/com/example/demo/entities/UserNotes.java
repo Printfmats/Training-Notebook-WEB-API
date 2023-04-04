@@ -1,5 +1,6 @@
-package com.example.demo.user_account;
+package com.example.demo.entities;
 
+import com.example.demo.entities.UserAccount;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -37,4 +38,8 @@ public class UserNotes {
 
     @Column(name = "description")
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserAccount userAccount;
 }

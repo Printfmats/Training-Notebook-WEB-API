@@ -29,8 +29,10 @@ Poprawienie email'u na stronie z profilem  ZROBIONE 02.04
 Schludniejsze security użycie lambd  ZROOBIONE 02.04
 email przy rejestracji wymaga odpowidnich znaków  ZROBIONE 02.04
 
-03.04
-
+04.04
+Dopracowanie strony z treningami, zwraca wszystkie treningi danego użytkownika który jest zalogowany    ZROBIONE 04.04
+Połączyłem hibernatem obie encje    ZROBIONE 04.04
+Zrobiłem Service, repozytorium i zaimplementowałem to odpowiednio kontrolerze  ZROBIONE 04.04
 
 
 DO ZREALIZOWANIA

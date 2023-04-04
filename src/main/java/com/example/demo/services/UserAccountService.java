@@ -1,16 +1,18 @@
-package com.example.demo.user_account;
+package com.example.demo.services;
 
+import com.example.demo.entities.UserAccount;
+import com.example.demo.repositories.UserAccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserAccountService {
 
-    private final UserAccountDAO userAccountDAO;
+    private final UserAccountRepo userAccountDAO;
     @Autowired
-    public UserService(UserAccountDAO userAccountDAO) {
+    public UserAccountService(UserAccountRepo userAccountDAO) {
         this.userAccountDAO = userAccountDAO;
     }
 

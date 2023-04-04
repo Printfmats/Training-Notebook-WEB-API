@@ -15,7 +15,13 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <input type="text" id="username" name="username" autofocus="autofocus" />
         <label for="password">Password</label>
         <input type="password" id="password" name="password" />
-        <label><input id="rememberme" name="remember" value="remember" type="checkbox" /> &nbsp;Remember me</label>
+<!--        <p>-->
+<!--            <label >Remember me</label>-->
+<!--            <input type="checkbox" id="remember" name="remember" />-->
+<!--        </p>-->
+<!--        <input type="hidden"-->
+<!--               name="${_csrf.parameterName}"-->
+<!--               value="${_csrf.token}"/>-->
         <button  class="submit" >log in</button>
         <p style="font-size: 12px; text-align: center;">Don't you have account yet? <a href="/register">Register</a></p>
     </form>

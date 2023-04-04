@@ -1,4 +1,4 @@
-package com.example.demo.user_account;
+package com.example.demo.entities;
 
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 
 
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -45,4 +48,17 @@ public class UserAccount {
 
     @Column(name = "role")
     private String role;
+
+    @OneToMany(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserNotes> userNotesList = new ArrayList<>();
+
+    public void addUserNotes(UserNotes userNotes) {
+        userNotesList.add(userNotes);
+        userNotes.setUserAccount(this);
+    }
+
+    public void removeUserNotes(UserNotes userNotes) {
+        userNotesList.remove(userNotes);
+        userNotes.setUserAccount(null);
+    }
 }

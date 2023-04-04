@@ -1,6 +1,6 @@
 package com.example.demo.security_log;
 
-import com.example.demo.user_account.UserAccount;
+import com.example.demo.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 
 public class SecurityUser implements UserDetails {
@@ -23,12 +21,6 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        System.out.println(userAccount.getRole());
-        System.out.println(Arrays.stream(userAccount
-                        .getRole()
-                        .split(","))
-                .map(SimpleGrantedAuthority::new)
-                .toList());
         return Arrays.stream(userAccount
                         .getRole()
                         .split(","))
