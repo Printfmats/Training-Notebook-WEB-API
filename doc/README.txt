@@ -34,10 +34,10 @@ Dopracowanie strony z treningami, zwraca wszystkie treningi danego użytkownika 
 Połączyłem hibernatem obie encje    ZROBIONE 04.04
 Zrobiłem Service, repozytorium i zaimplementowałem to odpowiednio kontrolerze  ZROBIONE 04.04
 
+05.04
+Dodanmie na stronie z profilem użytkownika ilośc jego dodanych notatek za pomocą zapytania z bazy ZROBIONE 05.04
 
 DO ZREALIZOWANIA
-Encje pod treningi powiązane z kontami użytkowników HIBERNATE SIĘ KŁANIA :)
-Strona Treningi Zwraca dane zalogowanego użytkownika
 
 Stworzenie pełnej bazy, wszystkich encji i powiązać je z kontem użytkownika
 

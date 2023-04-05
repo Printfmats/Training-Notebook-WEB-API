@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserNotesService {
@@ -19,5 +18,9 @@ public class UserNotesService {
 
     public List<UserNotes> findAllNotesByUserAccountId(Long userId) {
         return userNotesRepo.findAllByUserAccountUserId(userId);
+    }
+
+    public int countAllByUserAccountUserId(Long userId) {
+        return userNotesRepo.countByUserAccountUserId(userId);
     }
 }

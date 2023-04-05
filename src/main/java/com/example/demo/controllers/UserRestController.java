@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 
 @Controller
@@ -85,9 +84,11 @@ public class UserRestController {
 
     @RequestMapping("/api/profil")
     public String apiProfilPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
-        UserAccount user = userAccountDAO.findByUserName(userDetails.getUsername())
+        UserAccount userAccount = userAccountDAO.findByUserName(userDetails.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        model.addAttribute("email", user.getUserEmail());
+        int userNotes = userNotesService.countAllByUserAccountUserId(userAccount.getUserId());
+        model.addAttribute("email", userAccount.getUserEmail());
+        model.addAttribute("how_many_notes",userNotes);
         return "profilpage";
     }
 }
