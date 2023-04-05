@@ -21,6 +21,11 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println(Arrays.stream(userAccount
+                        .getRole()
+                        .split(","))
+                .map(SimpleGrantedAuthority::new)
+                .toList());
         return Arrays.stream(userAccount
                         .getRole()
                         .split(","))

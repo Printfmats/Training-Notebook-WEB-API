@@ -37,15 +37,14 @@ Zrobiłem Service, repozytorium i zaimplementowałem to odpowiednio kontrolerze 
 05.04
 Dodanmie na stronie z profilem użytkownika ilośc jego dodanych notatek za pomocą zapytania z bazy ZROBIONE 05.04
 
+Aplikacja jest w stanie pobrać notatki od użytkownika do bazy oraz przypisać do zalogowanego użytkownika i użytkownik może przejrzeć pod odpowiednim url
+prawie skończona funkcjonalność związana z zamysłem aplikacji "po co ona ma być".
+
+Muszę dopracować kod aby w kontrolerze nie zawierać tyle logiki dla serwisów i poprawić wstrzykiwane zależności
+Chciciałbym też popracować dodać coś ciekawszego z security owe remember me i temu podobne.
+
+//////////////////////////////////
 DO ZREALIZOWANIA
-
-Stworzenie pełnej bazy, wszystkich encji i powiązać je z kontem użytkownika
-
 Poprawkic logowanie
-
 Dodać oauth logowanie gmailem
-
-Ograniczenia z maile żeby miał @, haslo duża literę i cyfrę
-
-Jeśli użytkownik jest w bazie to wyrzucia informację a nie tylko nie przyjmuje rejestracji
 

@@ -25,6 +25,7 @@ public class UserAccount {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
+
     }
 
     @Id

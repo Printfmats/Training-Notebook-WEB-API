@@ -4,6 +4,7 @@ package com.example.demo.controllers;
 import com.example.demo.entities.UserAccount;
 import com.example.demo.entities.UserNotes;
 import com.example.demo.repositories.UserAccountRepo;
+import com.example.demo.repositories.UserNotesRepo;
 import com.example.demo.services.UserAccountService;
 import com.example.demo.services.UserNotesService;
 import jakarta.validation.Valid;
@@ -19,7 +20,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -27,14 +33,16 @@ public class UserRestController {
 
     private final PasswordEncoder passwordEncoder;
     private final UserAccountRepo userAccountDAO;
+    private final UserNotesRepo userNotesRepo;
 
     private final UserAccountService userService;
     private final UserNotesService userNotesService;
 
     @Autowired
-    public UserRestController(PasswordEncoder passwordEncoder, UserAccountRepo userAccountDAO, UserAccountService userService, UserNotesService userNotesService) {
+    public UserRestController(PasswordEncoder passwordEncoder, UserAccountRepo userAccountDAO, UserNotesRepo userNotesRepo, UserAccountService userService, UserNotesService userNotesService) {
         this.passwordEncoder = passwordEncoder;
         this.userAccountDAO = userAccountDAO;
+        this.userNotesRepo = userNotesRepo;
         this.userService = userService;
         this.userNotesService = userNotesService;
     }
@@ -71,6 +79,44 @@ public class UserRestController {
     public String apiAddingNotesPage() {
         return "nowenotatkipage";
     }
+
+    @PostMapping("/api/dodaj-notatki")
+    public String addNote(@RequestParam("title") String title,
+                          @RequestParam("duration") String duration,
+                          @RequestParam("start-date") String startDateString,
+                          @RequestParam("end-date") String endDateString,
+                          @RequestParam("description") String description,
+                          Principal principal) {
+
+        // konwertuj startDateString i endDateString na obiekt java.sql.Timestamp
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+        Date parsedStartDate = null;
+        Date parsedEndDate = null;
+        try {
+            parsedStartDate = dateFormat.parse(startDateString);
+            parsedEndDate = dateFormat.parse(endDateString);
+        } catch (ParseException e) {
+            // obsłuż wyjątek
+        }
+        Timestamp startDate = new Timestamp(parsedStartDate.getTime());
+        Timestamp endDate = new Timestamp(parsedEndDate.getTime());
+
+        String username = principal.getName(); // pobierz nazwę użytkownika
+        Optional<UserAccount> userAccount = userAccountDAO.findByUserName(username);
+        if (!userAccount.isPresent()) {
+            // obsłuż wyjątek lub zwróć informację o błędzie
+        }
+
+        UserNotes note = new UserNotes(title, duration, startDate, endDate, description, userAccount.get());
+
+        try {
+            userNotesRepo.save(note);
+        } catch (Exception e) {
+            // obsłuż wyjątek
+        }
+        return "nowenotatkipage";
+    }
+
 
     @RequestMapping("/api/treningi")
     public String apiTreiningiPage(Model model, Principal principal) {
