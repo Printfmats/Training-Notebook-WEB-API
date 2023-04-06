@@ -6,12 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface UserNotesRepo extends JpaRepository<UserNotes,Long> {
-
-    List<UserNotes> findAllByUserAccountUserId(Long userId);
+    List<UserNotes> findAllByUserAccountUserIdOrderByEndDateDesc(Long userId);
 
     @Query("SELECT COUNT(n) FROM UserNotes n WHERE n.userAccount.userId = :userId")
     int countByUserAccountUserId(Long userId);

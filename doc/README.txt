@@ -1,6 +1,5 @@
 Zamysł projektu: Stworzenie web api która posiada
 
-
 POSTĘPY PROJEKTU
 
 20.03
@@ -43,8 +42,15 @@ prawie skończona funkcjonalność związana z zamysłem aplikacji "po co ona ma
 Muszę dopracować kod aby w kontrolerze nie zawierać tyle logiki dla serwisów i poprawić wstrzykiwane zależności
 Chciciałbym też popracować dodać coś ciekawszego z security owe remember me i temu podobne.
 
+06.06.2023r
+Poprawiłem error z logowaniem który powstał wczoraj ZROBIONE 06.04
+Sortowanie treningu użytkownika według daty końcowej treningów ZROBIONE 06.04
+
+
+
+\
 //////////////////////////////////
-DO ZREALIZOWANIA
-Poprawkic logowanie
+Trzeba napisać testy
+Poprawic logowanie
 Dodać oauth logowanie gmailem
 

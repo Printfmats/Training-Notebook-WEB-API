@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 
-
 public class SecurityUser implements UserDetails {
 
     private final UserAccount userAccount;
@@ -21,11 +20,6 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        System.out.println(Arrays.stream(userAccount
-                        .getRole()
-                        .split(","))
-                .map(SimpleGrantedAuthority::new)
-                .toList());
         return Arrays.stream(userAccount
                         .getRole()
                         .split(","))

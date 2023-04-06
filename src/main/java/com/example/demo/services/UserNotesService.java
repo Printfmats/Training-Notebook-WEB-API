@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.entities.UserNotes;
 import com.example.demo.repositories.UserNotesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,8 @@ public class UserNotesService {
     }
 
     public List<UserNotes> findAllNotesByUserAccountId(Long userId) {
-        return userNotesRepo.findAllByUserAccountUserId(userId);
+        Sort sort = Sort.by(Sort.Direction.DESC, "endDate");
+        return userNotesRepo.findAllByUserAccountUserIdOrderByEndDateDesc(userId);
     }
 
     public int countAllByUserAccountUserId(Long userId) {
