@@ -5,6 +5,7 @@ body {
     background-size: cover;
     background-position: center center;
 }
+
 .start-page {
     display: flex;
     justify-content: center;
@@ -23,9 +24,9 @@ body {
     right: 5%;
     display: flex;
     flex-direction: row;
-  }
-  
-  .buttons button {
+}
+
+.buttons a, .buttons button {
     margin-left: 10px;
     padding: 5px 10px;
     border: none;
@@ -34,4 +35,14 @@ body {
     background-color: #00aeef;
     cursor: pointer;
     font-size: 1.2rem;
-  }
+    text-decoration: none; /* Dodajemy stylizację odnośnikom (<a>) */
+}
+
+.buttons button {
+    /* Dodajemy stylizację przyciskom (<button>) */
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border: none;
+}

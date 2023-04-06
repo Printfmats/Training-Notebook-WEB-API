@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/startpagestyle.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/startpagestyle.css}">
 </head>
 <body>
-        <div class="start-page">
-        </div>
-        <div class="buttons">
-            <button class="login-button" onclick=window.location.href="http://localhost:8080/login">Zaloguj się</button>
-            <button class="register-button" onclick=window.location.href="http://localhost:8080/register">Zarejestruj się</button>
-        </div>
+<div class="start-page">
+</div>
+<div class="buttons">
+    <a th:href="${@environment.getProperty('login.link')}" class="login-button">Zaloguj się</a>
+    <a th:href="${@environment.getProperty('register.link')}" class="register-button">Zarejestruj się</a>
+</div>
 </body>
 </html>

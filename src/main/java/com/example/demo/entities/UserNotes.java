@@ -31,7 +31,6 @@ public class UserNotes {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 
-
     @Column(name = "id_note")
     private Long idNote;
 

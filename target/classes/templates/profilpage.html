@@ -8,27 +8,27 @@
 </head>
 <body>
 <nav>
-    <a href="http://localhost:8080/api/treningi">Treningi</a>
-    <a href="http://localhost:8080/api/dodaj-notatki">Nowe notatki</a>
-    <a href="http://localhost:8080/api/profil">Profil</a>
-    <a th:href="@{/logout}">Wyloguj się</a>
-    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+    <a th:href="${@environment.getProperty('treningi.link')}">Treningi</a>
+    <a th:href="${@environment.getProperty('dodaj.notatki.link')}">Nowe notatki</a>
+    <a th:href="${@environment.getProperty('profil.link')}">Profil</a>
+    <a th:href="${@environment.getProperty('logout.link')}">Wyloguj się</a>
+    <form name="logoutForm" th:action="${@environment.getProperty('logout.link')}" method="post" th:hidden="true">
         <input hidden type="submit" value="Sign Out"/>
     </form>
 </nav>
-    <h1>Dane użytkownika</h1>
+<h1>Dane użytkownika</h1>
 
-    <div sec:authorize="isAuthenticated()">
-        <label>Authenticated as:</label>
-        <span sec:authentication="name"></span></div>
-    </div>
+<div sec:authorize="isAuthenticated()">
+    <label>Authenticated as:</label>
+    <span sec:authentication="name"></span></div>
+</div>
 <div>
     <label>Email:</label>
     <span th:text="${email}"></span>
 </div>
-    <div>
-        <label>Ilość dodanych notatek treningowych:</label>
-        <span th:text="${how_many_notes}"></span>
-    </div>
+<div>
+    <label>Ilość dodanych notatek treningowych:</label>
+    <span th:text="${how_many_notes}"></span>
+</div>
 </body>
 </html>

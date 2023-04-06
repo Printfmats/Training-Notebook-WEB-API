@@ -5,15 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.RememberMeServices;
-import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
-
-import java.security.SecureRandom;
-import java.util.Base64;
 
 @Configuration
 @EnableWebSecurity
@@ -44,7 +38,8 @@ public class SecurityConfig {
 
                 })
                 .authorizeHttpRequests(auth ->{
-                    auth.requestMatchers("/","/css/**","/register").permitAll();
+                    auth.requestMatchers(request -> !request.getRequestURI().startsWith("/css/**")).permitAll();
+                    auth.requestMatchers("/","/register").permitAll();
                     auth.requestMatchers("/api/**").authenticated();
 
                 })

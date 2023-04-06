@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+    <meta charset="UTF-8">
     <title>Login page</title>
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/loginpagestyle.css}">
-
+    <link rel="stylesheet" type="text/css" th:href="@{/css/loginpagestyle.css}">
 </head>
 <body>
 <div class="container">
@@ -12,11 +12,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <h1>Login page</h1>
         <p th:if="${loginError}" class="error">Wrong user or password</p>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" autofocus="autofocus" />
+        <input type="text" id="username" name="username" autofocus="autofocus"/>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button  class="submit" >log in</button>
-        <p style="font-size: 12px; text-align: center;">Don't you have account yet? <a href="/register">Register</a></p>
+        <input type="password" id="password" name="password"/>
+        <button class="submit">log in</button>
+        <p style="font-size: 12px; text-align: center;">Don't you have an account yet? <a th:href="${@environment.getProperty('register.link')}">Register</a></p>
     </form>
 </div>
 </body>

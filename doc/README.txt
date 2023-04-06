@@ -1,6 +1,6 @@
 Zamysł projektu: Stworzenie web api która posiada
 
-POSTĘPY PROJEKTU
+POSTĘPY PROJEKTU OD PEWNEGO MOMENTU ROZWINIĘCIA:
 
 20.03
 pobrać inputy gdy się logujesz/ sprawdzić w bazie i przekierować do api      ZROBIONE 20.03
@@ -45,10 +45,10 @@ Chciciałbym też popracować dodać coś ciekawszego z security owe remember me
 06.06.2023r
 Poprawiłem error z logowaniem który powstał wczoraj ZROBIONE 06.04
 Sortowanie treningu użytkownika według daty końcowej treningów ZROBIONE 06.04
+Schowanie linków url przed potencjalnym wykradnięciem po zbadaniu strony   ZROBIONE 06.04
+Zabezpieczenie plików css aby nie  było do nich wglądu po zalogwaniu, popawienie pliku security ZROBIONE 06.04
 
 
-
-\
 //////////////////////////////////
 Trzeba napisać testy
 Poprawic logowanie
