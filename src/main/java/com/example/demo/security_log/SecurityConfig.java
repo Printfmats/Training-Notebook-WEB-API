@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .formLogin(formlogin ->{
                     formlogin.loginPage("/login").permitAll();
                     formlogin.successForwardUrl("/api/treningi");
+                    formlogin.failureForwardUrl("/login");
                 })
                 .logout(logout ->{
                     logout.logoutUrl("/logout");
@@ -40,12 +41,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth ->{
                     auth.requestMatchers(request -> !request.getRequestURI().startsWith("/css/**")).permitAll();
                     auth.requestMatchers("/","/register").permitAll();
-                    auth.requestMatchers("/api/**").authenticated();
-
+                    auth.requestMatchers("/api/treningi","/api/dodaj-notatki","/api/profil").authenticated();
+//                    auth.requestMatchers("/api/activation").hasRole("[USER]");
                 })
                 .csrf().disable()
                 .userDetailsService(jpaUserDetailsService)
                 .build();
-
     }
 }

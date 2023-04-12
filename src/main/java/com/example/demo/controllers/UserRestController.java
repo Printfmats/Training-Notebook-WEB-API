@@ -9,6 +9,7 @@ import com.example.demo.services.UserAccountService;
 import com.example.demo.services.UserNotesService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +35,6 @@ public class UserRestController {
     private final PasswordEncoder passwordEncoder;
     private final UserAccountRepo userAccountDAO;
     private final UserNotesRepo userNotesRepo;
-
     private final UserAccountService userService;
     private final UserNotesService userNotesService;
 
@@ -117,7 +117,6 @@ public class UserRestController {
         return "nowenotatkipage";
     }
 
-
     @RequestMapping("/api/treningi")
     public String apiTreiningiPage(Model model, Principal principal) {
         String username = principal.getName();
@@ -135,6 +134,48 @@ public class UserRestController {
         int userNotes = userNotesService.countAllByUserAccountUserId(userAccount.getUserId());
         model.addAttribute("email", userAccount.getUserEmail());
         model.addAttribute("how_many_notes",userNotes);
+        model.addAttribute("role", userDetails.getAuthorities());
         return "profilpage";
     }
+
+
+
+    @GetMapping("/api/activation")
+    public String apiActivateAccountAsAdmin(Model model, Principal principal) {
+        // Sprawdź rolę użytkownika
+        Authentication auth = (Authentication) principal;
+        boolean isAdmin = auth.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ADMIN"));
+        if (!isAdmin) {
+            // Jeśli nie jest adminem, zwróć odpowiednią odpowiedź HTTP lub przekieruj na inną stronę
+            return "redirect:/error403"; // Przykład przekierowania na stronę błędu 403
+        }
+
+        List<UserAccount> userAccount = userAccountDAO.findByRoleIsNull();
+        model.addAttribute("userAccount", userAccount);
+        return  "activationuserpage";
+    }
+    @PostMapping("/api/activation")
+    public String activateUser(@RequestParam("userId") Long userId) {
+        // Pobierz użytkownika na podstawie userId
+        Optional<UserAccount> optionalUserAccount = userAccountDAO.findById(userId);
+        if (optionalUserAccount.isPresent()) {
+            UserAccount userAccount = optionalUserAccount.get();
+            // Ustaw rolę użytkownika na "USER" za pomocą settera
+            System.out.println(userAccount);
+            userAccount.setRole("USER");
+            userAccount.setUserEmail(userAccount.getUserEmail());
+
+            userAccountDAO.save(userAccount);
+            // Jeśli użytkownik miał wcześniej null rolę, to możesz również ustawić na null:
+            // userAccount.setRole(null);
+
+        }
+        // Przekieruj na stronę /api/activation
+        return "redirect:/api/activation";
+    }
+
+
+
+
 }

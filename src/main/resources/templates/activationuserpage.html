@@ -3,32 +3,40 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Moje notatki treningowe</title>
+    <title>Lista użytkowników</title>
     <link rel="stylesheet"  type="text/css" th:href="@{/css/treningipagestyle.css}">
 </head>
 <body>
+
 <nav>
     <a th:href="${@environment.getProperty('treningi.link')}">Treningi</a>
     <a th:href="${@environment.getProperty('dodaj.notatki.link')}">Nowe notatki</a>
     <a th:href="${@environment.getProperty('profil.link')}">Profil</a>
-    <a th:href="${@environment.getProperty('activation.link')}" sec:authorize="hasAuthority('ADMIN')">Aktywuj konta</a>
+    <a th:href="${@environment.getProperty('activation.link')}">Aktywuj konta</a>
     <a th:href="${@environment.getProperty('logout.link')}">Wyloguj się</a>
     <form name="logoutForm" th:action="${@environment.getProperty('logout.link')}" method="post" th:hidden="true">
         <input hidden type="submit" value="Sign Out"/>
     </form>
 </nav>
 <main>
-    <h1>Moje notatki treningowe</h1>
-    <ul class="note-list">
-        <li th:each="note : ${userNotes}" class="note">
-            <h2 th:text="${note.title}">Tytuł notatki</h2>
-            <div class="note-info">
-                <p class="activity-type" th:text="${note.activityType}">Długość treningu</p>
-                <p class="date" th:text="'Data: ' + ${note.startDate}">Data rozpoczęcia</p>
-            </div>
-            <p class="description" th:text="${note.description}">Opis notatki</p>
-        </li>
-    </ul>
+    <h1>Aktywacja kont</h1>
+    <table>
+        <tr>
+            <th>Nazwa użytkownika</th>
+            <th>Email</th>
+            <th>Akcje</th>
+        </tr>
+        <tr th:each="userAccount : ${userAccount}">
+            <td th:text="${userAccount.userName}">Nazwa użytkownika</td>
+            <td th:text="${userAccount.userEmail}">Email</td>
+            <td>
+                <form th:action="@{/api/activation}" method="post">
+                    <input type="hidden" name="userId" th:value="${userAccount.userId}" />
+                    <input type="submit" value="Aktywuj" />
+                </form>
+            </td>
+        </tr>
+    </table>
 </main>
 </body>
 </html>

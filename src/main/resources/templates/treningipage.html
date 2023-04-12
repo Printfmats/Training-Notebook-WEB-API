@@ -11,6 +11,7 @@
     <a th:href="${@environment.getProperty('treningi.link')}">Treningi</a>
     <a th:href="${@environment.getProperty('dodaj.notatki.link')}">Nowe notatki</a>
     <a th:href="${@environment.getProperty('profil.link')}">Profil</a>
+    <a th:href="${@environment.getProperty('activation.link')}" sec:authorize="hasAuthority('ADMIN')">Aktywuj konta</a>
     <a th:href="${@environment.getProperty('logout.link')}">Wyloguj się</a>
     <form name="logoutForm" th:action="${@environment.getProperty('logout.link')}" method="post" th:hidden="true">
         <input hidden type="submit" value="Sign Out"/>

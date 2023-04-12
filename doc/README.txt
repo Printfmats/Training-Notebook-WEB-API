@@ -48,9 +48,14 @@ Sortowanie treningu użytkownika według daty końcowej treningów ZROBIONE 06.0
 Schowanie linków url przed potencjalnym wykradnięciem po zbadaniu strony   ZROBIONE 06.04
 Zabezpieczenie plików css aby nie  było do nich wglądu po zalogwaniu, popawienie pliku security ZROBIONE 06.04
 
+12.04.2023r
+Duży update
+Użytkownicy  z rolą ADMIN mają dodatkową zakładkę która zawiera użytkowników nowo zarejestrowanych z rolą ustawwioną na NULL
+Użytkownicy są poprawnie wypisywani, dostęp i widoczność zakładki zrealizowana poprawnie dla ADMINA
+Natomiast po kliknięcia aktywuj nie zmienia się rola w bazie danych na USER wymaga to poprawienia natomiast wydaje się łatwą czynnością
+////////////////
 
-//////////////////////////////////
-Trzeba napisać testy
-Poprawic logowanie
-Dodać oauth logowanie gmailem
+TESTY
+DOCKER
+HEROKU
 
