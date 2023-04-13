@@ -42,7 +42,7 @@ public class UserAccount {
     @Column(name = "user_password", nullable = false)
     private String userPassword;
 
-    @Pattern(regexp = ".+@.+\\..+", message = "Nieprawidłowy adres email")
+//    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,63}$", message = "Nieprawidłowy adres email")
     @Size(min = 3 , message = "Nazwa musi zawierać od {min} znaków!")
     @Column(name = "user_email", nullable = false)
     private String userEmail;

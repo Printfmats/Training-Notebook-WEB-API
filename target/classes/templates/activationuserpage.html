@@ -32,6 +32,10 @@
             <td>
                 <form th:action="@{/api/activation}" method="post">
                     <input type="hidden" name="userId" th:value="${userAccount.userId}" />
+                    <select name="role">
+                        <option value="USER">USER</option>
+                        <option value="ADMIN">ADMIN</option>
+                    </select>
                     <input type="submit" value="Aktywuj" />
                 </form>
             </td>

@@ -139,7 +139,6 @@ public class UserRestController {
     }
 
 
-
     @GetMapping("/api/activation")
     public String apiActivateAccountAsAdmin(Model model, Principal principal) {
         // Sprawdź rolę użytkownika
@@ -156,20 +155,13 @@ public class UserRestController {
         return  "activationuserpage";
     }
     @PostMapping("/api/activation")
-    public String activateUser(@RequestParam("userId") Long userId) {
+    public String activateUser(@RequestParam("userId") Long userId, @RequestParam("role") String role) {
         // Pobierz użytkownika na podstawie userId
         Optional<UserAccount> optionalUserAccount = userAccountDAO.findById(userId);
         if (optionalUserAccount.isPresent()) {
             UserAccount userAccount = optionalUserAccount.get();
-            // Ustaw rolę użytkownika na "USER" za pomocą settera
-            System.out.println(userAccount);
-            userAccount.setRole("USER");
-            userAccount.setUserEmail(userAccount.getUserEmail());
-
-            userAccountDAO.save(userAccount);
-            // Jeśli użytkownik miał wcześniej null rolę, to możesz również ustawić na null:
-            // userAccount.setRole(null);
-
+            userAccount.setRole(role); // Ustaw rolę na podstawie wartości pola "role"
+            userAccountDAO.save(userAccount); // Zapisz zmiany w bazie danych
         }
         // Przekieruj na stronę /api/activation
         return "redirect:/api/activation";

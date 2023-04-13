@@ -42,7 +42,6 @@ public class SecurityConfig {
                     auth.requestMatchers(request -> !request.getRequestURI().startsWith("/css/**")).permitAll();
                     auth.requestMatchers("/","/register").permitAll();
                     auth.requestMatchers("/api/treningi","/api/dodaj-notatki","/api/profil").authenticated();
-//                    auth.requestMatchers("/api/activation").hasRole("[USER]");
                 })
                 .csrf().disable()
                 .userDetailsService(jpaUserDetailsService)
