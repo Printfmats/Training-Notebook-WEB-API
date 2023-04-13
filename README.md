@@ -7,3 +7,7 @@
 ![image](https://user-images.githubusercontent.com/98847639/231209051-111d50d0-33ee-4394-a5ee-542c8f76768f.png)
 ![image](https://user-images.githubusercontent.com/98847639/231755856-72598430-9649-4ec6-88da-9b505ba23471.png)
 
+Baza danych 
+![image](https://user-images.githubusercontent.com/98847639/231756371-936ba385-0610-4894-ae75-6cacdc0e7865.png)
+![image](https://user-images.githubusercontent.com/98847639/231756519-8bdd1005-3c88-4a23-8ce6-3e8bccf685b3.png)
+
