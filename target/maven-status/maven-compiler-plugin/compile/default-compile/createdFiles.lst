@@ -1,0 +1,13 @@
+com\example\demo\repositories\UserAccountRepo.class
+com\example\demo\security_log\SecurityConfig.class
+com\example\demo\services\UserAccountService.class
+com\example\demo\entities\UserAccount.class
+com\example\demo\services\UserNotesService.class
+com\example\demo\entities\UserAccount$UserAccountBuilder.class
+com\example\demo\repositories\UserNotesRepo.class
+com\example\demo\TrainingNotebookApplication.class
+com\example\demo\entities\UserNotes$UserNotesBuilder.class
+com\example\demo\security_log\SecurityUser.class
+com\example\demo\entities\UserNotes.class
+com\example\demo\controllers\UserRestController.class
+com\example\demo\security_log\JpaUserDetailsService.class

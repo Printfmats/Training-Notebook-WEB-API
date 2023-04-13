@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api:
+    build: ./
+    container_name: TrainingNotebook
+    image: moja-aplikacja-springboot
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db:5432/NotesTrening
+      - spring.datasource.username=postgres
+      - spring.datasource.password=1234
+      - spring.datasource.driverClassName=org.postgresql.Driver
+      - spring.jpa.show-sql=true
+      - spring.jpa.hibernate.ddl-auto=update
+      - treningi.link=http://localhost:8080/api/treningi
+      - dodaj.notatki.link=http://localhost:8080/api/dodaj-notatki
+      - profil.link=http://localhost:8080/api/profil
+      - activation.link=http://localhost:8080/api/activation
+      - logout.link=http://localhost:8080/logout
+      - login.link=http://localhost:8080/login
+      - register.link=http://localhost:8080/register
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=NotesTrening
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234

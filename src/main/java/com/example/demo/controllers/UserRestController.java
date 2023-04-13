@@ -9,6 +9,8 @@ import com.example.demo.services.UserAccountService;
 import com.example.demo.services.UserNotesService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -168,6 +170,10 @@ public class UserRestController {
     }
 
 
-
-
+//	@Bean  //ODBLOKOWAĆ PRZY UŻYCIU DOCKER COMPOSE //API ZAKŁADA ŻE NA POCZĄTKU JUŻ JEST JAKIŚ ADMIN KTÓRY AKTYWUJE KONTA
+//    CommandLineRunner commandLineRunner (UserAccountRepo repositoryUser){
+//		return args -> {
+//			repositoryUser.save(new UserAccount("ggg",passwordEncoder.encode("ggg"),"ggg@wp.pl","ADMIN"));
+//		};
+//	}
 }

@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\TrainingNotebookApplication.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\repositories\UserAccountRepo.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\security_log\SecurityConfig.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\repositories\UserNotesRepo.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\security_log\JpaUserDetailsService.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\services\UserAccountService.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\services\UserNotesService.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\entities\UserAccount.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\entities\UserNotes.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\security_log\SecurityUser.java
+C:\Users\Administrator\Desktop\Training notebook\src\main\java\com\example\demo\controllers\UserRestController.java

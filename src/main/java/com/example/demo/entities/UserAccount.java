@@ -28,6 +28,13 @@ public class UserAccount {
 
     }
 
+    public UserAccount(String userName, String userPassword, String userEmail, String role) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.role = role;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
 
