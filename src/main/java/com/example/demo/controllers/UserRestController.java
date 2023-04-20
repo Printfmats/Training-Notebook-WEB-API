@@ -26,9 +26,10 @@ import java.security.Principal;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
+import java.util.*;
 
 
 @Controller
@@ -108,9 +109,10 @@ public class UserRestController {
         if (!userAccount.isPresent()) {
             // obsłuż wyjątek lub zwróć informację o błędzie
         }
-
+        System.out.println(startDate);
+        System.out.println(endDate);
         UserNotes note = new UserNotes(title, duration, startDate, endDate, description, userAccount.get());
-
+        System.out.println(note);
         try {
             userNotesRepo.save(note);
         } catch (Exception e) {
@@ -120,11 +122,22 @@ public class UserRestController {
     }
 
     @RequestMapping("/api/treningi")
-    public String apiTreiningiPage(Model model, Principal principal) {
+    public String apiTreningiPage(@RequestParam(value = "sort", required = false) String sortField, Model model, Principal principal) {
         String username = principal.getName();
         UserAccount user = userAccountDAO.findByUserName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
         List<UserNotes> userNotes = userNotesService.findAllNotesByUserAccountId(user.getUserId());
+        if (sortField != null) {
+            switch (sortField) {
+                case "title":
+                    Collections.sort(userNotes, Comparator.comparing(UserNotes::getTitle));
+                    break;
+                case "activityType":
+                    Collections.sort(userNotes, Comparator.comparing(UserNotes::getActivityType));
+                    break;
+            }
+        }
         model.addAttribute("userNotes", userNotes);
         return "treningipage";
     }

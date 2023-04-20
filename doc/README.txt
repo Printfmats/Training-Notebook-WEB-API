@@ -59,6 +59,8 @@ Natomiast po kliknięcia aktywuj nie zmienia się rola w bazie danych na USER wy
 W pełni sprawna aktywacja kont jako ADMIN
 Dodanie możliwości wybrania czy aktywowane konto będzie ADMIN czy USER
 
+20.04.2023r
+Można sortować według tytułów i aktywności treningi
 ////////////////
 TESTY
 DOCKER

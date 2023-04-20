@@ -19,16 +19,35 @@
 </nav>
 <main>
     <h1>Moje notatki treningowe</h1>
+    <form th:action="@{/api/treningi}" method="GET">
+        <label for="sort-select">Sortuj według:</label>
+        <select name="sort" id="sort-select">
+            <option value="title">Tytuł</option>
+            <option value="activityType">Typ aktywności</option>
+        </select>
+        <input type="submit" value="SORTUJ">
+    </form>
     <ul class="note-list">
         <li th:each="note : ${userNotes}" class="note">
             <h2 th:text="${note.title}">Tytuł notatki</h2>
             <div class="note-info">
                 <p class="activity-type" th:text="${note.activityType}">Długość treningu</p>
                 <p class="date" th:text="'Data: ' + ${note.startDate}">Data rozpoczęcia</p>
+                <p class="date" th:text="'Data: ' + ${note.endDate}">Data zakończenia</p>
             </div>
             <p class="description" th:text="${note.description}">Opis notatki</p>
         </li>
     </ul>
 </main>
+<script>
+    const sortForm = document.querySelector('#sortForm');
+    const sortColumn = document.querySelector('#sortColumn');
+    sortForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const url = new URL(window.location.href);
+        url.searchParams.set('sort', sortColumn.value);
+        window.location.href = url.toString();
+    });
+</script>
 </body>
 </html>
