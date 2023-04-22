@@ -112,7 +112,6 @@ public class UserRestController {
         System.out.println(startDate);
         System.out.println(endDate);
         UserNotes note = new UserNotes(title, duration, startDate, endDate, description, userAccount.get());
-        System.out.println(note);
         try {
             userNotesRepo.save(note);
         } catch (Exception e) {
