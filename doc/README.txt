@@ -61,6 +61,12 @@ Dodanie możliwości wybrania czy aktywowane konto będzie ADMIN czy USER
 
 20.04.2023r
 Można sortować według tytułów i aktywności treningi
+
+22.04.2023
+Zapomniałem o ważnej funkcjonalności, jaką jest usuwanie treningów
+Dodałem nową metodę w kontrolerze, która przyjmuje jako parametr w url id notatki usuwa ją i wraca returnem do /api/treningi
+Wszystko działa dobrze
+
 ////////////////
 TESTY
 DOCKER

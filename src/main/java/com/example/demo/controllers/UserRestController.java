@@ -142,6 +142,13 @@ public class UserRestController {
         return "treningipage";
     }
 
+    @RequestMapping("/api/treningi/delete/{idNote}")
+    public String deleteNote(@PathVariable("idNote") Long idNote) {
+        System.out.println(idNote);
+        userNotesRepo.deleteById(idNote);
+        return "redirect:/api/treningi";
+    }
+
     @RequestMapping("/api/profil")
     public String apiProfilPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         UserAccount userAccount = userAccountDAO.findByUserName(userDetails.getUsername())
