@@ -67,8 +67,14 @@ Zapomniałem o ważnej funkcjonalności, jaką jest usuwanie treningów
 Dodałem nową metodę w kontrolerze, która przyjmuje jako parametr w url id notatki usuwa ją i wraca returnem do /api/treningi
 Wszystko działa dobrze
 
-////////////////
-TESTY
-DOCKER
-HEROKU
+12.05
+Zrealizowanie oautha2 poprawnie za pomocą gmail
+
+DO ZROBIENIA
+*Wymaga to jeszcze dodania strony z hasłem do wprowadzeniu po oauth
+*Oraz sprawdzenia maila po oauth aby nie mógł się powtarzać i tworzyć milion kont
+*Cały projekt wymaga również ogarnięcie logiki wyrzucenie w np kontrolerze repo a uwzględnienie tylko serwisu komunikowanie się przez niego
+
+
+
 

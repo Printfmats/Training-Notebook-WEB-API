@@ -78,6 +78,11 @@ public class UserRestController {
         return "redirect:/login";
     }
 
+    @RequestMapping("/password")
+    public String apiSettingPasswordAfterOauth() {
+        return "passwordoauthpage";
+    }
+
     @RequestMapping("/api/dodaj-notatki")
     public String apiAddingNotesPage() {
         return "nowenotatkipage";
@@ -187,6 +192,8 @@ public class UserRestController {
         // Przekieruj na stronę /api/activation
         return "redirect:/api/activation";
     }
+
+
 
 
 //	@Bean  //ODBLOKOWAĆ PRZY UŻYCIU DOCKER COMPOSE //API ZAKŁADA ŻE NA POCZĄTKU JUŻ JEST JAKIŚ ADMIN KTÓRY AKTYWUJE KONTA

@@ -1,5 +1,6 @@
 package com.example.demo.security_log;
 
+import com.example.demo.repositories.UserAccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,10 +15,12 @@ import org.springframework.security.web.SecurityFilterChain;
 //@RequiredArgsConstructor
 public class SecurityConfig {
     private final JpaUserDetailsService jpaUserDetailsService;
+    private final UserAccountRepo userAccountRepo;
 
     @Autowired
-    public SecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
+    public SecurityConfig(JpaUserDetailsService jpaUserDetailsService, UserAccountRepo userAccountRepo) {
         this.jpaUserDetailsService = jpaUserDetailsService;
+        this.userAccountRepo = userAccountRepo;
     }
 
     @Bean
@@ -42,6 +45,10 @@ public class SecurityConfig {
                     auth.requestMatchers(request -> !request.getRequestURI().startsWith("/css/**")).permitAll();
                     auth.requestMatchers("/","/register").permitAll();
                     auth.requestMatchers("/api/treningi","/api/dodaj-notatki","/api/profil").authenticated();
+                })
+                .oauth2Login(oauth2 -> {
+                    oauth2.loginPage("/login");
+                    oauth2.successHandler(new CustomSuccessHandler(userAccountRepo));
                 })
                 .csrf().disable()
                 .userDetailsService(jpaUserDetailsService)

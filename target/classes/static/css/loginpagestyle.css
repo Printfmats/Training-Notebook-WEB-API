@@ -60,3 +60,44 @@
         submit:hover {
             background-color: #0069d9;
         }
+        .oauth2-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        }
+
+        .oauth2-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        color: #444;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 10px;
+        width: 300px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        margin: 10px;
+        }
+
+        .oauth2-button:hover {
+        background-color: #ddd;
+        color: #222;
+        border-color: #ccc;
+        }
+
+        .oauth2-button.google {
+        background-color: #dd4b39;
+        color: #fff;
+        border-color: #dd4b39;
+        }
+
+        .oauth2-button.google:hover {
+        background-color: #d14836;
+        border-color: #d14836;
+        }

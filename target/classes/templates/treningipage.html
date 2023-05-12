@@ -34,7 +34,6 @@
                 <p class="date" th:text="'Data: ' + ${note.endDate}">Data zakończenia</p>
             </div>
             <p class="description" th:text="${note.description}">Opis notatki</p>
-            <p class="testo" th:text="${note.idNote}">=</p>
             <form th:action="@{/api/treningi/delete/{idNote}(idNote=${note.idNote})}" method="DELETE" style="display: inline;">
                 <button type="submit" class="delete-note-button">Usuń</button>
             </form>

@@ -34,7 +34,9 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:6.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:6.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.0.6" level="project" />
     <orderEntry type="library" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:6.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:3.0.4" level="project" />
@@ -81,9 +83,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:3.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:3.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.jayway.jsonpath:json-path:2.7.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: net.minidev:json-smart:2.4.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: net.minidev:accessors-smart:2.4.8" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm:9.1" level="project" />
+    <orderEntry type="library" name="Maven: net.minidev:json-smart:2.4.8" level="project" />
+    <orderEntry type="library" name="Maven: net.minidev:accessors-smart:2.4.8" level="project" />
+    <orderEntry type="library" name="Maven: org.ow2.asm:asm:9.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:4.0.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: jakarta.activation:jakarta.activation-api:2.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.23.1" level="project" />
@@ -108,12 +110,15 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:10.1.5" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:8.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security.oauth:spring-security-oauth2:2.3.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.0.6" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.0.6" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.15" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-oauth2-client:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-client:6.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-core:6.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.nimbusds:oauth2-oidc-sdk:9.43.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.stephenc.jcip:jcip-annotations:1.0-1" level="project" />
+    <orderEntry type="library" name="Maven: com.nimbusds:content-type:2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.nimbusds:lang-tag:1.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-jose:6.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.nimbusds:nimbus-jose-jwt:9.24.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:5.2.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.bytebuddy:byte-buddy:1.12.23" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy-agent:1.12.23" level="project" />
