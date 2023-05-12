@@ -69,9 +69,11 @@ Wszystko działa dobrze
 
 12.05
 Zrealizowanie oautha2 poprawnie za pomocą gmail
+oauth2 pobiera maila jak i login po czym przekierowuje na stronę gdzie się podaje hasło
+Po oauth2 poprawny i tak nie możesz się zalogować, musisz poczekać na przyznanie roli przed ADMINA
 
 DO ZROBIENIA
-*Wymaga to jeszcze dodania strony z hasłem do wprowadzeniu po oauth
+
 *Oraz sprawdzenia maila po oauth aby nie mógł się powtarzać i tworzyć milion kont
 *Cały projekt wymaga również ogarnięcie logiki wyrzucenie w np kontrolerze repo a uwzględnienie tylko serwisu komunikowanie się przez niego
 

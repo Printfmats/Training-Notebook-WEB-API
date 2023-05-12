@@ -38,31 +38,29 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws IOException, ServletException {
 
-
         OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
 
         // Pobranie informacji o użytkowniku z tokena OAuth2
         OAuth2User oAuth2User = oauthToken.getPrincipal();
         String email = oAuth2User.getAttribute("email");
         String name = oAuth2User.getAttribute("name");
-        System.out.println(email+name);
-        // Sprawdzenie, czy użytkownik jest już w bazie
-//        Optional<UserAccount> existingUserOptional = userAccountRepo.findByUserEmail(email);
-//
-//        if (!existingUserOptional.isPresent()) {
 
+        // Sprawdzenie, czy użytkownik jest już w bazie
+        Optional<UserAccount> existingUserOptional = userAccountRepo.findByUserEmail(email);
+
+        if (!existingUserOptional.isPresent()) {
             UserAccount newUserAccount = new UserAccount();
-                    newUserAccount.setUserName(name);
-                    newUserAccount.setUserPassword(null);
-                    newUserAccount.setUserEmail(email);
-        System.out.println(newUserAccount);
+            newUserAccount.setUserName(name);
+            newUserAccount.setUserEmail(email);
+            newUserAccount.setUserPassword("BRAK");
             // Dodanie użytkownika do bazy
             userAccountRepo.save(newUserAccount);
-//        }
+        }
 
-        // Przekierowanie użytkownika na stronę główną
+        // Przekierowanie użytkownika na stronę /password z przekazanym emailem jako zmienną ścieżki
+        String redirectUrl = "/password/" + email;
         DefaultRedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-        redirectStrategy.sendRedirect(request, response, "/");
+        redirectStrategy.sendRedirect(request, response, redirectUrl);
     }
 
 }

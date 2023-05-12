@@ -78,12 +78,29 @@ public class UserRestController {
         return "redirect:/login";
     }
 
-    @RequestMapping("/password")
-    public String apiSettingPasswordAfterOauth() {
+    @RequestMapping("/password/{email}")
+    public String apiSettingPasswordAfterOauth(@PathVariable("email") String email, Model model) {
+        model.addAttribute("email", email);
+        System.out.println(email);
         return "passwordoauthpage";
     }
 
-    @RequestMapping("/api/dodaj-notatki")
+    @PostMapping("/password")
+    public String savePassword(@RequestParam("email") String email, @RequestParam("password") String password) {
+        Optional<UserAccount> userAccountOptional = userAccountDAO.findByUserEmail(email);
+        System.out.println(userAccountOptional);
+        if (userAccountOptional.isPresent()) {
+            UserAccount userAccount = userAccountOptional.get();
+            userAccount.setUserPassword(passwordEncoder.encode(password));
+            userAccountDAO.save(userAccount);
+            // Przekieruj użytkownika na stronę po zapisie hasła
+            return "redirect:/login";
+        }
+        return "redirect:/";
+    }
+
+
+        @RequestMapping("/api/dodaj-notatki")
     public String apiAddingNotesPage() {
         return "nowenotatkipage";
     }

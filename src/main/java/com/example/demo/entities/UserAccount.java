@@ -21,6 +21,11 @@ import java.util.List;
 @Entity
 @Table(name = "userAccount")
 public class UserAccount {
+    public UserAccount(String userName, String userEmail) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+    }
+
     public UserAccount(String userName, String userPassword, String userEmail) {
         this.userName = userName;
         this.userPassword = userPassword;
@@ -36,7 +41,7 @@ public class UserAccount {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 
     @Column(name = "user_id")
     private Long userId;

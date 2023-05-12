@@ -43,8 +43,8 @@ public class SecurityConfig {
                 })
                 .authorizeHttpRequests(auth ->{
                     auth.requestMatchers(request -> !request.getRequestURI().startsWith("/css/**")).permitAll();
-                    auth.requestMatchers("/","/register").permitAll();
-                    auth.requestMatchers("/api/treningi","/api/dodaj-notatki","/api/profil").authenticated();
+                    auth.requestMatchers("/","/register","/password").permitAll();
+                    auth.requestMatchers("/api/**").authenticated();
                 })
                 .oauth2Login(oauth2 -> {
                     oauth2.loginPage("/login");

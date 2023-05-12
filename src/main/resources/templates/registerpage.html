@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Registration page</title>
-    <link rel="stylesheet"  type="text/css" th:href="@{/css/registerpagestyle.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registerpagestyle.css}">
 </head>
 <body>
 <div class="container">
@@ -20,17 +20,17 @@
         <h1>Registration page</h1>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" th:field="*{userName}" autofocus="autofocus" />
+            <input type="text" id="username" th:field="*{userName}" autofocus="autofocus" required="required" />
             <span class="error" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" th:field="*{userPassword}" />
+            <input type="password" id="password" th:field="*{userPassword}" required="required" />
             <span class="error" th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}"></span>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" id="email" th:field="*{userEmail}" />
+            <input type="email" id="email" th:field="*{userEmail}" required="required" />
             <span class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></span>
             <span class="error" th:if="${#fields.hasErrors('userEmail') && #fields.getError('userEmail') != null && #fields.getError('userEmail').contains('email')}"
                   th:text="${#fields.getError('userEmail')}"></span>
