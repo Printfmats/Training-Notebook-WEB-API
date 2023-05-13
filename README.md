@@ -1,30 +1,30 @@
 # Training-Notebook-WEB-API
 
 🚀 Opis projektu:
-Projekt Training-Notebook to API przedstawiające notatnik w którym możemy umieszczać nasze treningi, jest on głównie nastawiony na aspekt sportowy.
-Do owego API możemy się rejestrować normalnie lub przez gmail (oauth2), maile nie mogą się powtarzać przy tworzeniu konta.
-System posiada dwie role ADMIN i USER, nowy użytkownik musi poczekać na przyznanie dostępu za pomocą roli przez ADMINA.
-Możemy sprawdzić na zalogowanym koncie nasze dane oraz ilośc dodanych notatek.
-Dodane notatki treningowe możemy sortowane na parę sposobów .
-Wracająć do aspektu roli ADMIN, wyświetla się u niego dodatkowo zakładka w której może aktywować konta nowych użytkowników i przynawać im role, nie widoczna strona i nie dostępna dla USERA.
+*Projekt Training-Notebook to API przedstawiające notatnik w którym możemy umieszczać nasze treningi, jest on głównie nastawiony na aspekt sportowy.
+*Do owego API możemy się rejestrować normalnie lub przez gmail (oauth2), maile nie mogą się powtarzać przy tworzeniu konta.
+*System posiada dwie role ADMIN i USER, nowy użytkownik musi poczekać na przyznanie dostępu za pomocą roli przez ADMINA.
+*Możemy sprawdzić na zalogowanym koncie nasze dane oraz ilośc dodanych notatek.
+*Dodane notatki treningowe możemy sortowane na parę sposobów .
+*Wracająć do aspektu roli ADMIN, wyświetla się u niego dodatkowo zakładka w której może aktywować konta nowych użytkowników i przynawać im role, nie widoczna strona i nie dostępna dla USERA.
 
 
 🛠️ Technologie i narzędzia:
 
-Java
-Spring Framework
-Thymeleaf
-Hibernate
-PostgreSQL
-HTML, CSS
-Git
-Docker
+*Java
+*Spring Framework
+*Thymeleaf
+*Hibernate
+*PostgreSQL
+*HTML, CSS
+*Git
+*Docker
 
 📚 Wymagania:
 
-Java 8 lub nowsza wersja
-Maven
-Serwer baz danych PostgreSQL
+*Java 8 lub nowsza wersja
+*Maven
+*Serwer baz danych PostgreSQL
 
 ![image](https://user-images.githubusercontent.com/98847639/231208247-66e59be8-694d-4c59-a04d-9e57dfee21f7.png)
 ![image](https://user-images.githubusercontent.com/98847639/231208311-edd4ca47-3ffa-426f-8412-ae8aaf77c610.png)
