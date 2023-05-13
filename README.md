@@ -11,20 +11,20 @@
 
 🛠️ Technologie i narzędzia:
 
-*Java
-*Spring Framework
-*Thymeleaf
-*Hibernate
-*PostgreSQL
-*HTML, CSS
-*Git
-*Docker
+* Java
+* Spring Framework
+* Thymeleaf
+* Hibernate
+* PostgreSQL
+* HTML, CSS
+* Git
+* Docker
 
 📚 Wymagania:
 
-*Java 8 lub nowsza wersja
-*Maven
-*Serwer baz danych PostgreSQL
+* Java 8 lub nowsza wersja
+* Maven
+* Serwer baz danych PostgreSQL
 
 ![image](https://user-images.githubusercontent.com/98847639/231208247-66e59be8-694d-4c59-a04d-9e57dfee21f7.png)
 ![image](https://user-images.githubusercontent.com/98847639/231208311-edd4ca47-3ffa-426f-8412-ae8aaf77c610.png)
