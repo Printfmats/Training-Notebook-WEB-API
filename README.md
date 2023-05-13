@@ -1,12 +1,12 @@
 # Training-Notebook-WEB-API
 
 🚀 Opis projektu:
-*Projekt Training-Notebook to API przedstawiające notatnik w którym możemy umieszczać nasze treningi, jest on głównie nastawiony na aspekt sportowy.
-*Do owego API możemy się rejestrować normalnie lub przez gmail (oauth2), maile nie mogą się powtarzać przy tworzeniu konta.
-*System posiada dwie role ADMIN i USER, nowy użytkownik musi poczekać na przyznanie dostępu za pomocą roli przez ADMINA.
-*Możemy sprawdzić na zalogowanym koncie nasze dane oraz ilośc dodanych notatek.
-*Dodane notatki treningowe możemy sortowane na parę sposobów .
-*Wracająć do aspektu roli ADMIN, wyświetla się u niego dodatkowo zakładka w której może aktywować konta nowych użytkowników i przynawać im role, nie widoczna strona i nie dostępna dla USERA.
+* Projekt Training-Notebook to API przedstawiające notatnik w którym możemy umieszczać nasze treningi, jest on głównie nastawiony na aspekt sportowy.
+* Do owego API możemy się rejestrować normalnie lub przez gmail (oauth2), maile nie mogą się powtarzać przy tworzeniu konta.
+* System posiada dwie role ADMIN i USER, nowy użytkownik musi poczekać na przyznanie dostępu za pomocą roli przez ADMINA.
+* Możemy sprawdzić na zalogowanym koncie nasze dane oraz ilośc dodanych notatek.
+* Dodane notatki treningowe możemy sortowane na parę sposobów .
+* Wracająć do aspektu roli ADMIN, wyświetla się u niego dodatkowo zakładka w której może aktywować konta nowych użytkowników i przynawać im role, nie widoczna strona i nie dostępna dla USERA.
 
 
 🛠️ Technologie i narzędzia:
