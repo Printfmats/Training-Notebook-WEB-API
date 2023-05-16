@@ -53,7 +53,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
@@ -80,6 +79,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-resource-server</artifactId>
+			<version>6.0.3</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>

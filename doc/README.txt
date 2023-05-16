@@ -71,10 +71,26 @@ Wszystko działa dobrze
 Zrealizowanie oautha2 poprawnie za pomocą gmail
 oauth2 pobiera maila jak i login po czym przekierowuje na stronę gdzie się podaje hasło
 Po oauth2 poprawny i tak nie możesz się zalogować, musisz poczekać na przyznanie roli przed ADMINA
+system sprawdza  maila po oauth aby nie mógł się powtarzać i tworzyć milion kont
+
+13.05
+Poprawienie i dostosowanie wizualnie password po oauth do login i register w projekcie
+
+
+16.05
+API na podstawie zalogowanego użytkownik tworzy token JWT
+Dane zawarte w tokenie: (dane użytkownika akurat zalogowanego po rozszyfrowaniu)
+    {
+      "iss": "self",
+      "sub": "ggg",
+      "exp": 1684245106,
+      "iat": 1684241506,
+      "scope": "ADMIN"
+    }
+
 
 DO ZROBIENIA
 
-*Oraz sprawdzenia maila po oauth aby nie mógł się powtarzać i tworzyć milion kont
 *Cały projekt wymaga również ogarnięcie logiki wyrzucenie w np kontrolerze repo a uwzględnienie tylko serwisu komunikowanie się przez niego
 
 

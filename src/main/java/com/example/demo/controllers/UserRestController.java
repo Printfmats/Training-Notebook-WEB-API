@@ -5,12 +5,11 @@ import com.example.demo.entities.UserAccount;
 import com.example.demo.entities.UserNotes;
 import com.example.demo.repositories.UserAccountRepo;
 import com.example.demo.repositories.UserNotesRepo;
+import com.example.demo.services.TokenService;
 import com.example.demo.services.UserAccountService;
 import com.example.demo.services.UserNotesService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,9 +25,6 @@ import java.security.Principal;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
 import java.util.*;
 
 
@@ -41,13 +37,16 @@ public class UserRestController {
     private final UserAccountService userService;
     private final UserNotesService userNotesService;
 
+    private final TokenService tokenService;
+
     @Autowired
-    public UserRestController(PasswordEncoder passwordEncoder, UserAccountRepo userAccountDAO, UserNotesRepo userNotesRepo, UserAccountService userService, UserNotesService userNotesService) {
+    public UserRestController(PasswordEncoder passwordEncoder, UserAccountRepo userAccountDAO, UserNotesRepo userNotesRepo, UserAccountService userService, UserNotesService userNotesService, TokenService tokenService) {
         this.passwordEncoder = passwordEncoder;
         this.userAccountDAO = userAccountDAO;
         this.userNotesRepo = userNotesRepo;
         this.userService = userService;
         this.userNotesService = userNotesService;
+        this.tokenService = tokenService;
     }
 
     @RequestMapping("/") public String startingPage() {
@@ -81,14 +80,12 @@ public class UserRestController {
     @RequestMapping("/password/{email}")
     public String apiSettingPasswordAfterOauth(@PathVariable("email") String email, Model model) {
         model.addAttribute("email", email);
-        System.out.println(email);
         return "passwordoauthpage";
     }
 
     @PostMapping("/password")
     public String savePassword(@RequestParam("email") String email, @RequestParam("password") String password) {
         Optional<UserAccount> userAccountOptional = userAccountDAO.findByUserEmail(email);
-        System.out.println(userAccountOptional);
         if (userAccountOptional.isPresent()) {
             UserAccount userAccount = userAccountOptional.get();
             userAccount.setUserPassword(passwordEncoder.encode(password));
@@ -131,8 +128,6 @@ public class UserRestController {
         if (!userAccount.isPresent()) {
             // obsłuż wyjątek lub zwróć informację o błędzie
         }
-        System.out.println(startDate);
-        System.out.println(endDate);
         UserNotes note = new UserNotes(title, duration, startDate, endDate, description, userAccount.get());
         try {
             userNotesRepo.save(note);
@@ -171,13 +166,14 @@ public class UserRestController {
     }
 
     @RequestMapping("/api/profil")
-    public String apiProfilPage(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+    public String apiProfilPage(Model model, @AuthenticationPrincipal UserDetails userDetails, Authentication authentication) {
         UserAccount userAccount = userAccountDAO.findByUserName(userDetails.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         int userNotes = userNotesService.countAllByUserAccountUserId(userAccount.getUserId());
         model.addAttribute("email", userAccount.getUserEmail());
         model.addAttribute("how_many_notes",userNotes);
         model.addAttribute("role", userDetails.getAuthorities());
+        System.out.println(tokenService.generateToken(authentication));
         return "profilpage";
     }
 
