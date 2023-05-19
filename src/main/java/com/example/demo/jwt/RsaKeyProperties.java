@@ -1,4 +1,4 @@
-package com.example.demo.security_log;
+package com.example.demo.jwt;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

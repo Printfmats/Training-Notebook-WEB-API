@@ -85,8 +85,12 @@ Dane zawarte w tokenie: (dane użytkownika akurat zalogowanego po rozszyfrowaniu
       "sub": "ggg",
       "exp": 1684245106,
       "iat": 1684241506,
-      "scope": "ADMIN"
+      "role": "ADMIN"
     }
+
+19.05
+Dodałem testy moki dla rejestracji użytkownika
+Małe poprawki w generowaniu tokenu JWT
 
 
 DO ZROBIENIA

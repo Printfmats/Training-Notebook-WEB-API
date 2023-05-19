@@ -10,6 +10,8 @@ import com.example.demo.services.UserAccountService;
 import com.example.demo.services.UserNotesService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,7 +38,6 @@ public class UserRestController {
     private final UserNotesRepo userNotesRepo;
     private final UserAccountService userService;
     private final UserNotesService userNotesService;
-
     private final TokenService tokenService;
 
     @Autowired
@@ -52,10 +53,13 @@ public class UserRestController {
     @RequestMapping("/") public String startingPage() {
         return "startpage";
     }
+
     @GetMapping("/login")
     public String logingPage(){
         return "loginpage";
     }
+
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("userAccount", new UserAccount());
