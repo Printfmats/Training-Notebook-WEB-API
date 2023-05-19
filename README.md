@@ -32,7 +32,7 @@
 ![image](https://github.com/Printfmats/Training-Notebook-WEB-API/assets/98847639/2709011c-bc73-47c8-9d7c-8b418959c4c7)
 ![image](https://user-images.githubusercontent.com/98847639/233791116-ad3e78f7-a346-4ebd-bba2-ffd8ec8af165.png)
 ![image](https://user-images.githubusercontent.com/98847639/231208892-7fecb469-545a-44aa-b671-28e92d9d450c.png)
-![image](https://user-images.githubusercontent.com/98847639/231209051-111d50d0-33ee-4394-a5ee-542c8f76768f.png)
+![image](https://github.com/Printfmats/Training-Notebook-WEB-API/assets/98847639/556c116c-ea71-4bc0-9c13-28c9d1a3a5d4)
 ![image](https://user-images.githubusercontent.com/98847639/231755856-72598430-9649-4ec6-88da-9b505ba23471.png)
 
 	     																						             
