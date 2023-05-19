@@ -176,7 +176,7 @@ public class UserRestController {
         int userNotes = userNotesService.countAllByUserAccountUserId(userAccount.getUserId());
         model.addAttribute("email", userAccount.getUserEmail());
         model.addAttribute("how_many_notes",userNotes);
-        model.addAttribute("role", userDetails.getAuthorities());
+        model.addAttribute("email", userAccount.getUserEmail());
         System.out.println(tokenService.generateToken(authentication));
         return "profilpage";
     }

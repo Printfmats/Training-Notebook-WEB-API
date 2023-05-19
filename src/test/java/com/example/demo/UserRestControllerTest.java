@@ -11,7 +11,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -20,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class UserRestControllerTest {
 
@@ -52,6 +56,8 @@ public class UserRestControllerTest {
 
     private UserRestController userRestController;
 
+    @Autowired
+    private MockMvc mockMvc;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -104,5 +110,7 @@ public class UserRestControllerTest {
         verify(bindingResult).rejectValue(eq("userEmail"), anyString(), anyString());
         assertEquals("registerpage", result);
     }
+
+
 }
 
